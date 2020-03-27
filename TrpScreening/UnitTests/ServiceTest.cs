@@ -42,7 +42,7 @@ namespace UnitTests
         }
 
         [Test]
-        public void Should_treat_any_non_letters_as_non_letters()
+        public void Should_treat_any_supported_non_letters_as_non_letters()
         {
             var allLetters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
 
@@ -56,6 +56,8 @@ namespace UnitTests
                 Assert.That(result.Length, Is.EqualTo(3));
             }
         }
+
+        // todo non supported
 
         [TestCase("The cow jumped over the moon.", "jumped", 6, Description = "Basic scenario")]
         [TestCase("two,three", "three", 5, Description = "Non-letters are ignored")]
