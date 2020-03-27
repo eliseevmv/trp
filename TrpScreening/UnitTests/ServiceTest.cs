@@ -57,8 +57,6 @@ namespace UnitTests
             }
         }
 
-        // todo non supported
-
         [TestCase("The cow jumped over the moon.", "jumped", 6, Description = "Basic scenario")]
         [TestCase("two,three", "three", 5, Description = "Non-letters are ignored")]
         [TestCase("King's", "King", 4, Description = "Apostrophe is treated as other non-letter characters")]
