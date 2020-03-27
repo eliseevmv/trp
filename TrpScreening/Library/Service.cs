@@ -9,9 +9,10 @@ namespace Library
 
         public Service()
         {
-            var  letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz".ToCharArray();
-            var  allSupportedCharacters = Enumerable.Range(0, 127).Select(i=> (char)i);
-            CharactersToExclude = Enumerable.Except(allSupportedCharacters,letters).ToArray();
+            CharactersToExclude = Enumerable.Range(0, 255)
+                                            .Select(i => (char)i)
+                                            .Where(c => !char.IsLetter(c))
+                                            .ToArray();
         }
 
         public WordWithLength FindLongestWord(string s)
