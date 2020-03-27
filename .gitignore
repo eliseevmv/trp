@@ -1,0 +1,10 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/.vs
+/TrpScreening/.vs/TrpScreening/v16
+/TrpScreening/Library/bin/Debug/netstandard2.0
+/TrpScreening/Library/obj
+/TrpScreening/UnitTests/bin/Debug/netcoreapp3.1
+/TrpScreening/UnitTests/obj
