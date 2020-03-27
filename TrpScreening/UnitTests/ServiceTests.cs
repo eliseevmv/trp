@@ -20,16 +20,7 @@ namespace UnitTests
         {
             Assert.Throws<ArgumentNullException>(() => service.FindLongestWord(null));
         }
-
-        [Test]
-        public void Given_empty_string_when_FindLongestWord_should_return_empty_result()
-        {
-            var result = service.FindLongestWord("");
-
-            Assert.IsNotNull(result);
-            Assert.That(result.Word, Is.EqualTo(string.Empty));
-            Assert.That(result.Length, Is.EqualTo(0));
-        }
+       
         
         [Test]
         public void When_FindLongestWord_should_treat_any_supported_letters_as_letters()
@@ -57,6 +48,7 @@ namespace UnitTests
             }
         }
 
+        [TestCase("", "", 0, Description = "Empty string")]
         [TestCase("The cow jumped over the moon.", "jumped", 6, Description = "Basic scenario")]
         [TestCase("two,three", "three", 5, Description = "Non-letters are ignored")]
         [TestCase("King's", "King", 4, Description = "Apostrophe is treated as other non-letter characters")]
