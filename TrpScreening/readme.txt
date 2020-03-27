@@ -1,5 +1,15 @@
 
 
+    Ideally I would like to clarify requirements before writing code. For example, I would check the range of supported characters
+    (ASCII, extended ASCII or Unicode). I would also check what characters can be used considered to be part of a word.
+
+    I have made the following assumptions in order to simplify this excercise:
+    - Only ASCII symbols are supported
+    - Words can only consist of letters
+
+
+    I have assumed that 
+
         Alternative implementation
         - return just a string
         - return a Tuple instead of WordWithLength

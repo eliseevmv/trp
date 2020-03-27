@@ -65,6 +65,7 @@ namespace UnitTests
         [TestCase("HTML5 one", "HTML", 4, Description = "Digits are treated as other non-letter characters")]
         [TestCase("12345 word", "word", 4, Description = "Long numbers are ignored")]
         [TestCase("12345 ,   ", "", 0, Description = "String without letters - contains no words")]
+        [TestCase("yes     no", "yes", 3, Description = "Multiple spaces ignored")]
         public void Given_sentence_should_return_expected_result(string s, string expectedWord, int expectedLength)
         {
             var result = service.FindLongestWord(s);
