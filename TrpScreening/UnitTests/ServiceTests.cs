@@ -5,7 +5,7 @@ using System.Linq;
 
 namespace UnitTests
 {
-    public class Tests
+    public class ServiceTests
     {
         private Service service;
 

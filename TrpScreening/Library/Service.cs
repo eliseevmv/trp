@@ -28,5 +28,19 @@ namespace Library
 
             return new WordWithLength(longestWord);
         }
+
+        public WordWithLength FindShortestWord(string s)
+        {
+            if (s == null)
+            {
+                throw new ArgumentNullException(nameof(s));
+            }
+
+            var longestWord = s.Split(CharactersToExclude)
+                               .OrderBy(w => w.Length)
+                               .First();
+
+            return new WordWithLength(longestWord);
+        }
     }
 }
