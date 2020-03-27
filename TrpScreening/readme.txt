@@ -1,14 +1,14 @@
 
 
     Ideally I would like to clarify requirements before writing code. For example, I would check the range of supported characters
-    (ASCII, extended ASCII or Unicode). I would also check what characters can be used considered to be part of a word.
+    (ASCII, extended ASCII or Unicode). I would also check what characters can be considered to be a part of a word.
 
-    I would also clarify requirements for treatment null, empty string and string without words. 
+    I would also clarify requirements for treatment of nulls, empty strings and strings without words. 
 
     I would also double-check why the function should return both word and its length. It is very unusual because in C# it is trivial
     to get the length of a string (by calling .Length getter). It would be natural if the function only returned a string (the longest word). 
 
-    I would have also looked at coding standards in the system, any external systems if they will use the results of this method,
+    I would also look at coding standards in the system, any external systems which use the results of this method,
     and discussed it with the colleagues.
     
     It is a coding test and (I assume) it is not possible to clarify the requirements. Therefore I have made a number of assumptions.
