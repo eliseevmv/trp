@@ -17,8 +17,11 @@
     - Words can only consist of letters defined by C# char.IsLetter function.
         (Note that as a consequence, HTML5 and King's would not be considered words)
     - If an argument is null, the function will throw an exception
-    - If an argument is an empty string, the function will return an empty string and 0
-    - If an argument is a string without letters, the function will return an empty string and 0
+    - If an argument is an empty string, the function will return null and 0
+    - If an argument is a string without letters, the function will return null and 0
     - I assume that there are requirements which explain why the function must return both the word and its length
+    - I assume that if there two equally long words, the function can return any of them 
+
+    I have also considered merging 
               
     

@@ -22,9 +22,9 @@ namespace Library
                 throw new ArgumentNullException(nameof(s));
             }
 
-            var longestWord = s.Split(CharactersToExclude)
+            var longestWord = s.Split(CharactersToExclude,StringSplitOptions.RemoveEmptyEntries)
                                .OrderByDescending(w => w.Length)
-                               .First();
+                               .FirstOrDefault();
 
             return new WordWithLength(longestWord);
         }
@@ -36,9 +36,9 @@ namespace Library
                 throw new ArgumentNullException(nameof(s));
             }
 
-            var longestWord = s.Split(CharactersToExclude)
+            var longestWord = s.Split(CharactersToExclude, StringSplitOptions.RemoveEmptyEntries)
                                .OrderBy(w => w.Length)
-                               .First();
+                               .FirstOrDefault();
 
             return new WordWithLength(longestWord);
         }
