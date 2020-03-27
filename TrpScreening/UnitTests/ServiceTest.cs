@@ -16,13 +16,13 @@ namespace UnitTests
         }
 
         [Test]
-        public void Given_null_should_throw_exception()
+        public void Given_null_when_FindLongestWord_should_throw_exception()
         {
             Assert.Throws<ArgumentNullException>(() => service.FindLongestWord(null));
         }
 
         [Test]
-        public void Given_empty_string_should_return_empty_result()
+        public void Given_empty_string_when_FindLongestWord_should_return_empty_result()
         {
             var result = service.FindLongestWord("");
 
@@ -32,7 +32,7 @@ namespace UnitTests
         }
         
         [Test]
-        public void Should_treat_any_supported_letters_as_letters()
+        public void When_FindLongestWord_should_treat_any_supported_letters_as_letters()
         {
             var allLetters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
             var result = service.FindLongestWord(allLetters);
@@ -42,7 +42,7 @@ namespace UnitTests
         }
 
         [Test]
-        public void Should_treat_any_supported_non_letters_as_non_letters()
+        public void When_FindLongestWord_should_treat_any_supported_non_letters_as_non_letters()
         {
             var allLetters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
 
@@ -64,7 +64,7 @@ namespace UnitTests
         [TestCase("12345 word", "word", 4, Description = "Long numbers are ignored")]
         [TestCase("12345 ,   ", "", 0, Description = "String without letters - contains no words")]
         [TestCase("yes     no", "yes", 3, Description = "Multiple spaces ignored")]
-        public void Given_sentence_should_return_expected_result(string s, string expectedWord, int expectedLength)
+        public void Given_sentence_when_FindLongestWord_should_return_expected_result(string s, string expectedWord, int expectedLength)
         {
             var result = service.FindLongestWord(s);
 
