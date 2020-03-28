@@ -22,6 +22,10 @@
     - I assume that there are requirements which explain why the function must return both the word and its length
     - I assume that if there two equally long words, the function can return any of them 
 
-    I have also considered merging 
-              
+    |The code and the tests are implemented in C#, .NET Standard 2.0.
+    They can be built and executed using Visual Studio (https://visualstudio.microsoft.com/).
     
+    Alternatively they can be built and executed using .NET Core CLI included in .NET Core SDK (https://docs.microsoft.com/en-us/dotnet/core/install/sdk?pivots=os-windows)
+    - Open solution folder in a command prompt
+    - Execute 'dotnet build' command
+    - Execute 'dotnet test' command
