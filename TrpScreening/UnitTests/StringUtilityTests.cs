@@ -14,7 +14,7 @@ namespace UnitTests
         }
         
         [Test]
-        public void When_FindLongestWord_should_treat_any_supported_letters_as_letters()
+        public void When_FindLongestWord_should_treat_any_ASCII_letters_as_letters()
         {
             var allLetters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
             var result = StringUtility.FindLongestWord(allLetters);
@@ -24,7 +24,7 @@ namespace UnitTests
         }
 
         [Test]
-        public void When_FindLongestWord_should_treat_any_supported_non_letters_as_non_letters()
+        public void When_FindLongestWord_should_treat_any_ASCII_non_letters_as_non_letters()
         {
             var allLetters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
 
@@ -64,7 +64,7 @@ namespace UnitTests
         }
 
         [Test]
-        public void When_FindShortestWord_should_treat_any_supported_letters_as_letters()
+        public void When_FindShortestWord_should_treat_any_ASCII_letters_as_letters()
         {
             var allLetters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
             var result = StringUtility.FindShortestWord(allLetters);
@@ -74,7 +74,7 @@ namespace UnitTests
         }
 
         [Test]
-        public void When_FindShortestWord_should_treat_any_supported_non_letters_as_non_letters()
+        public void When_FindShortestWord_should_treat_any_ASCII_non_letters_as_non_letters()
         {
             var allLetters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
 
