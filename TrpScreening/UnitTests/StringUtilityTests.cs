@@ -1,31 +1,23 @@
-using Library;
+﻿using Library;
 using NUnit.Framework;
 using System;
 using System.Linq;
 
 namespace UnitTests
 {
-    public class ServiceTests
+    public class StringUtilityTests
     {
-        private Service service;
-
-        [SetUp]
-        public void Setup()
-        {
-            service = new Service();
-        }
-
         [Test]
         public void Given_null_when_FindLongestWord_should_throw_exception()
         {
-            Assert.Throws<ArgumentNullException>(() => service.FindLongestWord(null));
+            Assert.Throws<ArgumentNullException>(() => StringUtility.FindLongestWord(null));
         }
         
         [Test]
         public void When_FindLongestWord_should_treat_any_supported_letters_as_letters()
         {
             var allLetters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
-            var result = service.FindLongestWord(allLetters);
+            var result = StringUtility.FindLongestWord(allLetters);
 
             Assert.That(result.Word, Is.EqualTo(allLetters));
             Assert.That(result.Length, Is.EqualTo(allLetters.Length));
@@ -41,7 +33,7 @@ namespace UnitTests
            
             foreach (var nonLetterCharacter in nonLetterCharacters)
             {
-                var result = service.FindLongestWord($"one{nonLetterCharacter}");
+                var result = StringUtility.FindLongestWord($"one{nonLetterCharacter}");
                 Assert.That(result.Word, Is.EqualTo("one"));
                 Assert.That(result.Length, Is.EqualTo(3));
             }
@@ -55,9 +47,11 @@ namespace UnitTests
         [TestCase("12345 word", "word", 4, Description = "Long numbers are ignored")]
         [TestCase("12345 ($   ", null, 0, Description = "String without letters - contains no words")]
         [TestCase("yes     no", "yes", 3, Description = "Multiple spaces ignored")]
+        [TestCase("ab 磨磨磨", "磨磨磨", 3, Description = "non-ASCII letters must be supported")]
+        [TestCase("abc ab͸͸", "abc", 3, Description = "non-ASCII non-letters must be ignored")]
         public void Given_sentence_when_FindLongestWord_should_return_expected_result(string s, string expectedWord, int expectedLength)
         {
-            var result = service.FindLongestWord(s);
+            var result = StringUtility.FindLongestWord(s);
 
             Assert.That(result.Word, Is.EqualTo(expectedWord));
             Assert.That(result.Length, Is.EqualTo(expectedLength));
@@ -66,14 +60,14 @@ namespace UnitTests
         [Test]
         public void Given_null_when_FindShortestWord_should_throw_exception()
         {
-            Assert.Throws<ArgumentNullException>(() => service.FindShortestWord(null));
+            Assert.Throws<ArgumentNullException>(() => StringUtility.FindShortestWord(null));
         }
 
         [Test]
         public void When_FindShortestWord_should_treat_any_supported_letters_as_letters()
         {
             var allLetters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
-            var result = service.FindShortestWord(allLetters);
+            var result = StringUtility.FindShortestWord(allLetters);
 
             Assert.That(result.Word, Is.EqualTo(allLetters));
             Assert.That(result.Length, Is.EqualTo(allLetters.Length));
@@ -89,7 +83,7 @@ namespace UnitTests
 
             foreach (var nonLetterCharacter in nonLetterCharacters)
             {
-                var result = service.FindShortestWord($"one{nonLetterCharacter}");
+                var result = StringUtility.FindShortestWord($"one{nonLetterCharacter}");
                 Assert.That(result.Word, Is.EqualTo("one"));
                 Assert.That(result.Length, Is.EqualTo(3));
             }
@@ -103,9 +97,11 @@ namespace UnitTests
         [TestCase("12345 word", "word", 4, Description = "Long numbers are ignored")]
         [TestCase("12345 ;!  ", null, 0, Description = "String without letters - contains no words")]
         [TestCase("yes     no", "no", 2, Description = "Multiple spaces ignored")]
+        [TestCase("abc 磨磨", "磨磨", 2, Description = "non-ASCII characteres must be supported")]
+        [TestCase("abc ab͸͸", "ab", 2, Description = "non-ASCII non-letters must be ignored")]
         public void Given_sentence_when_FindShortestWord_should_return_expected_result(string s, string expectedWord, int expectedLength)
         {
-            var result = service.FindShortestWord(s);
+            var result = StringUtility.FindShortestWord(s);
 
             Assert.That(result.Word, Is.EqualTo(expectedWord));
             Assert.That(result.Length, Is.EqualTo(expectedLength));
