@@ -12,11 +12,10 @@ namespace Library
                 throw new ArgumentNullException(nameof(s));
             }
 
-            string preparedString = ReplaceNonLettersBySpaces(s);
-
-            var longestWord = preparedString.Split(new[] { ' ' }, StringSplitOptions.RemoveEmptyEntries)
-                                            .OrderByDescending(w => w.Length)
-                                            .FirstOrDefault();
+            var longestWord = s.ReplaceNonLettersBySpaces()
+                               .Split(new[] { ' ' }, StringSplitOptions.RemoveEmptyEntries)
+                               .OrderByDescending(w => w.Length)
+                               .FirstOrDefault();
 
             return new WordWithLength(longestWord);
         }
@@ -28,16 +27,15 @@ namespace Library
                 throw new ArgumentNullException(nameof(s));
             }
 
-            string preparedString = ReplaceNonLettersBySpaces(s);
-
-            var longestWord = preparedString.Split(new[] {' '}, StringSplitOptions.RemoveEmptyEntries)
-                                            .OrderBy(w => w.Length)
-                                            .FirstOrDefault();
+            var longestWord = s.ReplaceNonLettersBySpaces()
+                               .Split(new[] {' '}, StringSplitOptions.RemoveEmptyEntries)
+                               .OrderBy(w => w.Length)
+                               .FirstOrDefault();
 
             return new WordWithLength(longestWord);
         }
 
-        private static string ReplaceNonLettersBySpaces(string s)
+        private static string ReplaceNonLettersBySpaces(this string s)
         {
             return new string(s.Select(c => char.IsLetter(c) ? c : ' ').ToArray());
         }
