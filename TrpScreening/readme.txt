@@ -13,7 +13,7 @@
     
     It is a coding test and (I assume) it is not possible to clarify the requirements. Therefore I have made a number of assumptions.
 
-    - Only extended ASCII symbols are supported
+    - All Unicode symbols are supported
     - Words can only consist of letters defined by C# char.IsLetter function.
         (Note that as a consequence, HTML5 and King's would not be considered words)
     - If an argument is null, the function will throw an exception
